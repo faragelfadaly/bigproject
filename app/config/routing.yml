@@ -1,0 +1,4 @@
+medical_health:
+    resource: "@MedicalHealthBundle/Resources/config/routing.yml"
+    prefix:   /
+

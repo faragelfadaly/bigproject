@@ -1,0 +1,47 @@
+<?php
+
+namespace Medical\HealthBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Patient_Disease
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Medical\HealthBundle\Entity\Patient_DiseaseRepository")
+ */
+class Patient_Disease {
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     *          
+     * @ORM\OneToOne(targetEntity="Patient")
+     * @ORM\JoinColumn(name="patient_id", referencedColumnName="id") 
+     */
+    private $patient;
+
+    /**
+     *
+     * @ORM\OneToOne(targetEntity="Disease")
+     * @ORM\JoinColumn(name="disease_id", referencedColumnName="id")
+     */
+    private $disease;
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId() {
+        return $this->id;
+    }
+
+}

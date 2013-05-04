@@ -1,0 +1,155 @@
+<!DOCTYPE html> 
+<html manifest="demo.appcache"> 
+    <head> 
+        <title>My Doctor</title> 
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+        <link rel="stylesheet" href="{{ asset('css/jquery.mobile-1.3.1.min.css') }}" />        
+
+        <script src="{{ asset('js/jquery-1.8.0.js') }}"></script>
+        <script src="{{ asset('js/jquery.mobile-1.3.1.min.js') }}"></script>    
+
+        <script>
+            $(document).on("ready", function() {
+
+
+                if (typeof(Storage) !== "undefined")
+                {
+                    alert("Yes! localStorage and sessionStorage support!");
+
+                    //localStorage.projectName = prompt("Enter your project name");
+
+                }
+                else
+                {
+                    alert('Sorry! No web storage support..');
+                }
+
+                sessionStorage.loginUser = prompt("Enter your name please");
+
+                alert("Local Storage : " + localStorage.projectName);
+                alert("Session Storage : " + sessionStorage.loginUser);
+
+                ////////////////////////////////////////////////////////////////
+                /////// Check if browser support Server-sent Events or not//////
+                ////////////////////////////////////////////////////////////////
+                if (typeof(EventSource) !== "undefined")
+                {
+                    alert('Yes! Server-sent events support!');
+                }
+                else
+                {
+                    alert('Sorry! No server-sent events support..');
+                }
+
+                ////////////////////////////////////////////////////////////////
+                //////////////////////////// Web Database //////////////////////
+                ////////////////////////////////////////////////////////////////
+                if (typeof(openDatabase) !== "undefined")
+                {
+                    alert('Yes! Web SQL Storage supported!');
+                }
+                else
+                {
+                    alert('Sorry! Web SQL Storage not supported..');
+                }
+
+                /*
+                 var shortName = 'patientDataBase';
+                 var version = '1.0';
+                 var displayName = 'patientDataBase';
+                 var maxSize = 65536;
+                 db = openDatabase(shortName, version, displayName, maxSize);
+                 db.transaction(
+                 function(transaction) {
+                 transaction.executeSql(
+                 'CREATE TABLE IF NOT EXISTS patientRecord1 ' +
+                 '  (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, ' +
+                 '  pName TEXT NOT NULL);'
+                 );
+                 }
+                 );
+                 
+                 db.transaction(
+                 function(transaction) {
+                 transaction.executeSql(
+                 "INSERT INTO patientRecord1 (pName) VALUES ('farag');"
+                 )
+                 });
+                 db.transaction(
+                 function(transaction) {
+                 transaction.executeSql('SELECT * FROM patientRecord1;', [], function(transaction, result) {
+                 for (var i = 0; i < result.rows.length; i++) {
+                 var row = result.rows.item(i);
+                 alert(row.pName);
+                 }
+                 }, errorHandler);
+                 });
+                 */
+                ///////////////////////////////////////////////////////////////////
+                ///////////////////////////////////////////////////////////////////
+                ///////////////////////////////////////////////////////////////////
+
+                if (navigator.geolocation) {
+                    alert("HTML5 Geolocation supported");
+                } else {
+                    alert("HTML5 Geolocation not supported !!!!!!");
+                }
+
+                navigator.geolocation.getCurrentPosition(updateLocation, handleLocationError);
+
+                function updateLocation(position)
+                {
+                    alert("Longitude : " + position.coords.longitude);
+                    alert("Latitude : " + position.coords.latitude);
+                    alert("Altitude : " + position.coords.altitude);
+                    alert("altitudeAccuracy : " + position.coords.altitudeAccuracy);
+                    alert("Heading : " + position.coords.heading);
+                    alert("Speed : " + position.coords.speed);
+                }
+
+                function handleLocationError(error) {
+                    switch (error.code) {
+                        case 0:
+                            alert("There was an error while retrieving your location: " +
+                                    error.message);
+                            break;
+                        case 1:
+                            alert("The user prevented this page from retrieving a location.");
+                            break;
+                        case 2:
+                            alert("The browser was unable to determine your location: " +
+                                    error.message);
+                            break;
+                        case 3:
+                            alert("The browser timed out before retrieving the location.");
+                            break;
+                    }
+                }
+
+            })
+            </script> 
+        </head> 
+        <body> 
+
+            <div data-role="page" id="home">
+                <header data-role="header">
+                    <!--<div data-role="header">-->
+                    <p style="font-size: 30px ; text-align: center">My Doctor</p>                
+                    <button data-mini="true">Login</button>
+                    <!--</div>--><!-- /header -->
+                </header>
+            {% block body %}
+
+            {% endblock %}
+
+                <footer data-role="footer">
+                    <h1>My Doctor</h1>
+                </footer>
+
+            </div><!-- /page -->        
+
+        </body>
+    </html>
+
