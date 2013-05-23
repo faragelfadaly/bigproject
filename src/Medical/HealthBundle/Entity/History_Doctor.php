@@ -23,24 +23,24 @@ class History_Doctor {
 
     /**
      *          
-     * @ORM\OneToOne(targetEntity="Patient_Doctor")
-     * @ORM\JoinColumn(name="patient_doctor_id", referencedColumnName="id") 
+     * @ORM\OneToOne(targetEntity="Patient")
+     * @ORM\JoinColumn(name="patient_id", referencedColumnName="id") 
      */
-    private $patient_doctor;
+    private $patient;
 
     /**
      *          
-     * @ORM\OneToOne(targetEntity="Medicine")
-     * @ORM\JoinColumn(name="medicine_id", referencedColumnName="id") 
+     * @ORM\OneToOne(targetEntity="Doctor")
+     * @ORM\JoinColumn(name="doctor_id", referencedColumnName="id") 
      */
-    private $medicine;
+    private $doctor;
 
     /**
      *          
-     * @ORM\OneToOne(targetEntity="PatientCase")
-     * @ORM\JoinColumn(name="patientCase_id", referencedColumnName="id") 
+     * @ORM\OneToOne(targetEntity="Disease")
+     * @ORM\JoinColumn(name="disease_id", referencedColumnName="id") 
      */
-    private $patientCase;
+    private $disease;
 
     /**
      * @var string
@@ -177,17 +177,15 @@ class History_Doctor {
         return $this->patientCase;
     }
 
-
     /**
      * Set medicine
      *
      * @param \Medical\HealthBundle\Entity\Medicine $medicine
      * @return History_Doctor
      */
-    public function setMedicine(\Medical\HealthBundle\Entity\Medicine $medicine = null)
-    {
+    public function setMedicine(\Medical\HealthBundle\Entity\Medicine $medicine = null) {
         $this->medicine = $medicine;
-    
+
         return $this;
     }
 
@@ -196,8 +194,8 @@ class History_Doctor {
      *
      * @return \Medical\HealthBundle\Entity\Medicine 
      */
-    public function getMedicine()
-    {
+    public function getMedicine() {
         return $this->medicine;
     }
+
 }
