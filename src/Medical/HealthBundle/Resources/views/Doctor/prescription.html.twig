@@ -1,0 +1,14 @@
+{#% extends "::base.html.twig" %#}
+
+{% block body %}
+<form action=""  method="post" {{ form_enctype(form) }}>
+        
+   
+    {{ form_widget(form) }}
+    {{ form_errors(form) }}
+
+    {{ form_rest(form) }}
+
+        <input type="submit" value="Send Prescription" />
+</form>
+{% endblock %}

@@ -1,3 +1,9 @@
 medical_health_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: MedicalHealthBundle:Default:index }
+medical_health_addmedicine:
+    pattern:  /medicine
+    defaults: { _controller: MedicalHealthBundle:Doctor:addmedicine }
+medical_health_Prescription:
+    pattern:  /prescription
+    defaults: { _controller: MedicalHealthBundle:Doctor:prescription }

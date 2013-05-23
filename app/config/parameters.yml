@@ -4,11 +4,12 @@ parameters:
     database_port: null
     database_name: medical_db
     database_user: root
-    database_password: '2181989'
+    database_password: ''
     mailer_transport: smtp
     mailer_host: 127.0.0.1
     mailer_user: null
     mailer_password: null
     locale: en
-    secret: f9053c6f17bcf82d5738483775b1b426
+    secret: 735c9ca08d7aeda17852df5a6610c4ff8c603fe6
     database_path: null
+
