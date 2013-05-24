@@ -61,6 +61,14 @@ class Doctor_Disease {
      *
      * @return integer 
      */
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="periodic", type="integer")
+     */
+    private $periodic;
+
     public function getId() {
         return $this->id;
     }
@@ -170,4 +178,27 @@ class Doctor_Disease {
         return $this->medicine;
     }
 
+
+    /**
+     * Set periodic
+     *
+     * @param integer $periodic
+     * @return Doctor_Disease
+     */
+    public function setPeriodic($periodic)
+    {
+        $this->periodic = $periodic;
+    
+        return $this;
+    }
+
+    /**
+     * Get periodic
+     *
+     * @return integer 
+     */
+    public function getPeriodic()
+    {
+        return $this->periodic;
+    }
 }

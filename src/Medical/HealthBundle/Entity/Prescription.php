@@ -29,6 +29,13 @@ class Prescription {
     private $history_doctor;
 
     /**
+     *          
+     * @ORM\OneToOne(targetEntity="Medicine")
+     * @ORM\JoinColumn(name="medicine_id", referencedColumnName="id") 
+     */
+    private $medicine;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="no_doses", type="integer")
@@ -65,17 +72,15 @@ class Prescription {
         return $this->no_doses;
     }
 
-
     /**
      * Set history_doctor
      *
      * @param \Medical\HealthBundle\Entity\History_Doctor $historyDoctor
      * @return Prescription
      */
-    public function setHistoryDoctor(\Medical\HealthBundle\Entity\History_Doctor $historyDoctor = null)
-    {
+    public function setHistoryDoctor(\Medical\HealthBundle\Entity\History_Doctor $historyDoctor = null) {
         $this->history_doctor = $historyDoctor;
-    
+
         return $this;
     }
 
@@ -84,8 +89,8 @@ class Prescription {
      *
      * @return \Medical\HealthBundle\Entity\History_Doctor 
      */
-    public function getHistoryDoctor()
-    {
+    public function getHistoryDoctor() {
         return $this->history_doctor;
     }
+
 }

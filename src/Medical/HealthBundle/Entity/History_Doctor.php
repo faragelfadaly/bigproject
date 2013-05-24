@@ -49,12 +49,22 @@ class History_Doctor {
      */
     private $diagnosis;
 
+
+    // medicines that is not exist in the database
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="extraMedicines", type="text")
+     */
+    private $extraMedicines;
+
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="datetime")
+     * @ORM\Column(name="diagnosis_date", type="datetime")
      */
-    private $date;
+    private $diagnosis_date;
 
     /**
      * @var boolean
@@ -136,48 +146,6 @@ class History_Doctor {
     }
 
     /**
-     * Set patient_doctor
-     *
-     * @param \Medical\HealthBundle\Entity\Patient_Doctor $patientDoctor
-     * @return History_Doctor
-     */
-    public function setPatientDoctor(\Medical\HealthBundle\Entity\Patient_Doctor $patientDoctor = null) {
-        $this->patient_doctor = $patientDoctor;
-
-        return $this;
-    }
-
-    /**
-     * Get patient_doctor
-     *
-     * @return \Medical\HealthBundle\Entity\Patient_Doctor 
-     */
-    public function getPatientDoctor() {
-        return $this->patient_doctor;
-    }
-
-    /**
-     * Set patientCase
-     *
-     * @param \Medical\HealthBundle\Entity\PatientCase $patientCase
-     * @return History_Doctor
-     */
-    public function setPatientCase(\Medical\HealthBundle\Entity\PatientCase $patientCase = null) {
-        $this->patientCase = $patientCase;
-
-        return $this;
-    }
-
-    /**
-     * Get patientCase
-     *
-     * @return \Medical\HealthBundle\Entity\PatientCase 
-     */
-    public function getPatientCase() {
-        return $this->patientCase;
-    }
-
-    /**
      * Set medicine
      *
      * @param \Medical\HealthBundle\Entity\Medicine $medicine
@@ -196,6 +164,111 @@ class History_Doctor {
      */
     public function getMedicine() {
         return $this->medicine;
+    }
+
+    /**
+     * Set extraMedicines
+     *
+     * @param string $extraMedicines
+     * @return History_Doctor
+     */
+    public function setExtraMedicines($extraMedicines) {
+        $this->extraMedicines = $extraMedicines;
+
+        return $this;
+    }
+
+    /**
+     * Get extraMedicines
+     *
+     * @return string 
+     */
+    public function getExtraMedicines() {
+        return $this->extraMedicines;
+    }
+
+    /**
+     * Set diagnosis_date
+     *
+     * @param \DateTime $diagnosisDate
+     * @return History_Doctor
+     */
+    public function setDiagnosisDate($diagnosisDate) {
+        $this->diagnosis_date = $diagnosisDate;
+
+        return $this;
+    }
+
+    /**
+     * Get diagnosis_date
+     *
+     * @return \DateTime 
+     */
+    public function getDiagnosisDate() {
+        return $this->diagnosis_date;
+    }
+
+    /**
+     * Set patient
+     *
+     * @param \Medical\HealthBundle\Entity\Patient $patient
+     * @return History_Doctor
+     */
+    public function setPatient(\Medical\HealthBundle\Entity\Patient $patient = null) {
+        $this->patient = $patient;
+
+        return $this;
+    }
+
+    /**
+     * Get patient
+     *
+     * @return \Medical\HealthBundle\Entity\Patient 
+     */
+    public function getPatient() {
+        return $this->patient;
+    }
+
+    /**
+     * Set doctor
+     *
+     * @param \Medical\HealthBundle\Entity\Doctor $doctor
+     * @return History_Doctor
+     */
+    public function setDoctor(\Medical\HealthBundle\Entity\Doctor $doctor = null) {
+        $this->doctor = $doctor;
+
+        return $this;
+    }
+
+    /**
+     * Get doctor
+     *
+     * @return \Medical\HealthBundle\Entity\Doctor 
+     */
+    public function getDoctor() {
+        return $this->doctor;
+    }
+
+    /**
+     * Set disease
+     *
+     * @param \Medical\HealthBundle\Entity\Disease $disease
+     * @return History_Doctor
+     */
+    public function setDisease(\Medical\HealthBundle\Entity\Disease $disease = null) {
+        $this->disease = $disease;
+
+        return $this;
+    }
+
+    /**
+     * Get disease
+     *
+     * @return \Medical\HealthBundle\Entity\Disease 
+     */
+    public function getDisease() {
+        return $this->disease;
     }
 
 }

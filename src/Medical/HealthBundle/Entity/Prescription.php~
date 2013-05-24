@@ -65,4 +65,27 @@ class Prescription {
         return $this->no_doses;
     }
 
+
+    /**
+     * Set history_doctor
+     *
+     * @param \Medical\HealthBundle\Entity\History_Doctor $historyDoctor
+     * @return Prescription
+     */
+    public function setHistoryDoctor(\Medical\HealthBundle\Entity\History_Doctor $historyDoctor = null)
+    {
+        $this->history_doctor = $historyDoctor;
+    
+        return $this;
+    }
+
+    /**
+     * Get history_doctor
+     *
+     * @return \Medical\HealthBundle\Entity\History_Doctor 
+     */
+    public function getHistoryDoctor()
+    {
+        return $this->history_doctor;
+    }
 }

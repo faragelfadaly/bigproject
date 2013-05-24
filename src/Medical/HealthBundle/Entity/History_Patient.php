@@ -23,17 +23,24 @@ class History_Patient {
 
     /**
      *          
-     * @ORM\OneToOne(targetEntity="Patient_Doctor")
-     * @ORM\JoinColumn(name="patient_doctor_id", referencedColumnName="id") 
+     * @ORM\OneToOne(targetEntity="Patient")
+     * @ORM\JoinColumn(name="patient_id", referencedColumnName="id") 
      */
-    private $patient_doctor;
+    private $patient;
 
     /**
      *          
-     * @ORM\OneToOne(targetEntity="PatientCase")
-     * @ORM\JoinColumn(name="patientCase_id", referencedColumnName="id") 
+     * @ORM\OneToOne(targetEntity="Doctor")
+     * @ORM\JoinColumn(name="doctor_id", referencedColumnName="id") 
      */
-    private $patientCase;
+    private $doctor;
+
+    /**
+     *          
+     * @ORM\OneToOne(targetEntity="Disease")
+     * @ORM\JoinColumn(name="disease_id", referencedColumnName="id") 
+     */
+    private $disease;
 
     /**
      * @var string
@@ -101,45 +108,66 @@ class History_Patient {
     }
 
     /**
-     * Set patientCase
+     * Set patient
      *
-     * @param \Medical\HealthBundle\Entity\PatientCase $patientCase
+     * @param \Medical\HealthBundle\Entity\Patient $patient
      * @return History_Patient
      */
-    public function setPatientCase(\Medical\HealthBundle\Entity\PatientCase $patientCase = null) {
-        $this->patientCase = $patientCase;
+    public function setPatient(\Medical\HealthBundle\Entity\Patient $patient = null) {
+        $this->patient = $patient;
 
         return $this;
     }
 
     /**
-     * Get patientCase
+     * Get patient
      *
-     * @return \Medical\HealthBundle\Entity\PatientCase 
+     * @return \Medical\HealthBundle\Entity\Patient 
      */
-    public function getPatientCase() {
-        return $this->patientCase;
+    public function getPatient() {
+        return $this->patient;
     }
 
     /**
-     * Set patient_doctor
+     * Set doctor
      *
-     * @param \Medical\HealthBundle\Entity\Patient_Doctor $patientDoctor
+     * @param \Medical\HealthBundle\Entity\Doctor $doctor
      * @return History_Patient
      */
-    public function setPatientDoctor(\Medical\HealthBundle\Entity\Patient_Doctor $patientDoctor = null) {
-        $this->patient_doctor = $patientDoctor;
+    public function setDoctor(\Medical\HealthBundle\Entity\Doctor $doctor = null) {
+        $this->doctor = $doctor;
 
         return $this;
     }
 
     /**
-     * Get patient_doctor
+     * Get doctor
      *
-     * @return \Medical\HealthBundle\Entity\Patient_Doctor 
+     * @return \Medical\HealthBundle\Entity\Doctor 
      */
-    public function getPatientDoctor() {
-        return $this->patient_doctor;
+    public function getDoctor() {
+        return $this->doctor;
+    }
+
+    /**
+     * Set disease
+     *
+     * @param \Medical\HealthBundle\Entity\Disease $disease
+     * @return History_Patient
+     */
+    public function setDisease(\Medical\HealthBundle\Entity\Disease $disease = null) {
+        $this->disease = $disease;
+
+        return $this;
+    }
+
+    /**
+     * Get disease
+     *
+     * @return \Medical\HealthBundle\Entity\Disease 
+     */
+    public function getDisease() {
+        return $this->disease;
     }
 
 }
